@@ -4,6 +4,10 @@ import data from "./data/mock.json";
 const app = express();
 const PORT = 5000;
 
+app.use(express.static("public"));
+
+app.use("/images", express.static("images"));
+
 app.get("/", (req, res) => {
 	res.json(data);
 });
