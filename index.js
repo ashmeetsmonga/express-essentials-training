@@ -15,6 +15,11 @@ app.get("/", (req, res) => {
 	res.json(data);
 });
 
+//GET with redirect
+app.get("/redirect", (req, res) => {
+	res.redirect("https://www.google.co.in");
+});
+
 //GET with routing parameters
 app.get("/class/:id", (req, res) => {
 	const studentId = Number(req.params.id);
@@ -22,7 +27,7 @@ app.get("/class/:id", (req, res) => {
 	res.send(student);
 });
 
-//Get with next
+//Get with next()
 app.get(
 	"/next/:id",
 	(req, res, next) => {
