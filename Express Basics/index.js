@@ -5,7 +5,7 @@ const app = express();
 const PORT = 5000;
 
 app.get("/", (req, res) => {
-	res.send("This is a GET request at /");
+	res.json(data);
 });
 
 app.post("/create", (req, res) => {
@@ -22,5 +22,5 @@ app.delete("/delete", (req, res) => {
 
 app.listen(PORT, () => {
 	console.log("The server is running on port:", PORT);
-	console.log("Mock data", data);
+	//console.log("Mock data", data);
 });
