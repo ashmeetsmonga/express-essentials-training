@@ -41,6 +41,13 @@ app.get(
 	}
 );
 
+//Route chaining
+app
+	.route("/class")
+	.get((req, res) => res.send("GET class info"))
+	.post((req, res) => res.send("POST class info"))
+	.put((req, res) => res.send("PUT class info"));
+
 //POST
 app.post("/create", (req, res) => {
 	res.send("This is a POST request at /create");
