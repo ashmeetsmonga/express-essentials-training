@@ -12,6 +12,13 @@ app.get("/", (req, res) => {
 	res.json(data);
 });
 
+//GET with request params
+app.get("/class/:id", (req, res) => {
+	const studentId = Number(req.params.id);
+	const student = data.filter((student) => student.id === studentId);
+	res.send(student);
+});
+
 app.post("/create", (req, res) => {
 	res.send("This is a POST request at /create");
 });
