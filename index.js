@@ -34,10 +34,14 @@ app.get(
 		console.log("Routed to next function");
 		next();
 	},
-	(req, res) => {
+	(req, res, next) => {
 		const studentId = Number(req.params.id);
 		const student = data.filter((student) => student.id === studentId);
 		res.send(student);
+		next();
+	},
+	(req, res) => {
+		console.log("Last");
 	}
 );
 
