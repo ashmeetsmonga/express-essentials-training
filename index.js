@@ -10,9 +10,19 @@ app.use(express.static("public"));
 //images folder
 app.use("/images", express.static("images"));
 
+//Express Middlewares, express.json() and express.urlencoded()
+//app.use(express.urlencoded({extended: true}))
+app.use(express.json());
+
 //GET
 app.get("/", (req, res) => {
 	res.json(data);
+});
+
+//POST for express.json()
+app.post("/item", (req, res) => {
+	console.log(req.body);
+	res.send(req.body);
 });
 
 //GET with redirect
