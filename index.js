@@ -62,6 +62,11 @@ app
 	.post((req, res) => res.send("POST class info"))
 	.put((req, res) => res.send("PUT class info"));
 
+//GET Error handling
+app.get("/error", (req, res) => {
+	throw new Error();
+});
+
 //POST
 app.post("/create", (req, res) => {
 	res.send("This is a POST request at /create");
@@ -75,6 +80,12 @@ app.put("/update", (req, res) => {
 //DELETE
 app.delete("/delete", (req, res) => {
 	res.send("This is a DELETE request at /delete");
+});
+
+//Error handling
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.send("Something went wrong!!!");
 });
 
 app.listen(PORT, () => {
